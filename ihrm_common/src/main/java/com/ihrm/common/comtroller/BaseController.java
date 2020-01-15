@@ -1,7 +1,6 @@
 package com.ihrm.common.comtroller;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +17,6 @@ public class BaseController {
         this.response = response;
         //暂时先写死
         this.companyId = "1";
-        this.companyName = "无限公司";
+        this.companyName = "传智播客";
     }
 }
