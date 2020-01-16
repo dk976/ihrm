@@ -5,8 +5,8 @@ import com.ihrm.common.entity.PageResult;
 import com.ihrm.common.entity.Result;
 import com.ihrm.common.entity.ResultCode;
 import com.ihrm.domain.system.User;
+import com.ihrm.domain.system.response.UserResult;
 import com.ihrm.system.service.UserService;
-import io.jsonwebtoken.Jwt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,7 @@ public class UserController extends BaseController {
      * @param map
      * @return
      */
-    @RequestMapping(value = "/user/assignRoles", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/assignRoles", method = RequestMethod.PUT)
     public Result save(@RequestBody Map<String, Object> map) {
         //1.获取被分配的用户id
         String userId = (String) map.get("id");
@@ -63,7 +63,8 @@ public class UserController extends BaseController {
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public Result findById(@PathVariable(value = "id") String id) {
         User user = userService.findById(id);
-        return new Result(ResultCode.SUCCESS, user);
+        UserResult userResult = new UserResult(user);
+        return new Result(ResultCode.SUCCESS, userResult);
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)

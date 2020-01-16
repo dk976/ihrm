@@ -95,8 +95,8 @@ public class RoleService extends BaseService {
      * <p>
      * 前端通过map的方式把值传过来
      */
-    public Page<Role> findSearch(String companyId, int page, int pagesize) {
-        return roleDao.findAll(getSpect(companyId), PageRequest.of(page - 1, pagesize));
+    public Page<Role> findSearch(String companyId, int page, int size) {
+        return roleDao.findAll(getSpect(companyId), PageRequest.of(page - 1, size));
 
     }
 
