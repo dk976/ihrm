@@ -29,6 +29,14 @@ public class UserService extends BaseService {
     private RoleDao roleDao;
 
     /**
+     * 根据mobile查询
+     */
+    public User findByMobile(String mobile){
+        return userDao.findByMobile(mobile);
+
+    }
+
+    /**
      * 添加用户
      *
      * @param user
@@ -67,7 +75,11 @@ public class UserService extends BaseService {
      * 根据id查询用户
      */
     public User findById(String id) {
-        return userDao.findById(id).get();
+        Optional<User> optional = userDao.findById(id);
+        if (optional != null && optional.isPresent()){
+            return optional.get();
+        }
+        return null;
     }
 
     /**

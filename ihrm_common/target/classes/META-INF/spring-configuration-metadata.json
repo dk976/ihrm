@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "jwt.config",
+      "type": "com.ihrm.common.utils.JwtUtils",
+      "sourceType": "com.ihrm.common.utils.JwtUtils"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jwt.config.key",
+      "type": "java.lang.String",
+      "sourceType": "com.ihrm.common.utils.JwtUtils"
+    },
+    {
+      "name": "jwt.config.ttl",
+      "type": "java.lang.Long",
+      "sourceType": "com.ihrm.common.utils.JwtUtils"
+    }
+  ],
+  "hints": []
+}

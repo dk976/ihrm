@@ -26,7 +26,7 @@ public class RoleController extends BaseController {
      * @param map
      * @return
      */
-    @RequestMapping(value = "/role/assignPrem", method = RequestMethod.POST)
+    @RequestMapping(value = "/role/assignPrem", method = RequestMethod.PUT)
     public Result save(@RequestBody Map<String, Object> map) {
         //1.获取被分配的角色id
         String roleId = (String) map.get("id");

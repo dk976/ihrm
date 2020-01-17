@@ -17,9 +17,10 @@ public class ProfileResult {
     private String mobile;
     private String username;
     private String company;
-    private Map<String,Object> roles = new HashMap<>();
+    private Map<String, Object> roles = new HashMap<>();
 
     public ProfileResult(User user) {
+
         this.mobile = user.getMobile();
         this.username = user.getUsername();
         this.company = user.getCompanyName();
@@ -28,22 +29,23 @@ public class ProfileResult {
         Set<String> menus = new HashSet<>();
         Set<String> points = new HashSet<>();
         Set<String> apis = new HashSet<>();
+
         for (Role role : roles) {
             Set<Permission> perms = role.getPermissions();
             for (Permission perm : perms) {
                 String code = perm.getCode();
-                if(perm.getType() == 1) {
+                if (perm.getType() == 1) {
                     menus.add(code);
-                }else if(perm.getType() == 2) {
+                } else if (perm.getType() == 2) {
                     points.add(code);
-                }else {
+                } else {
                     apis.add(code);
                 }
             }
         }
 
-        this.roles.put("menus",menus);
-        this.roles.put("points",points);
-        this.roles.put("apis",apis);
+        this.roles.put("menus", menus);
+        this.roles.put("points", points);
+        this.roles.put("apis", apis);
     }
 }
